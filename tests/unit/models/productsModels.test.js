@@ -1,8 +1,6 @@
 const { expect } = require('chai');
-const describe = require('mocha');
 const sinon = require('sinon');
 const connection = require('../../../models/connection');
-
 const productsModels = require('../../../models/products');
 
 const validObject = [
@@ -17,17 +15,16 @@ const validObject = [
 ]
 
 describe('Verifica o product Model', () => {
-  before(() => {
-    sinon.stub(productsModels, 'execute').resolves(validObject);
+  before(async () => {
+    sinon.stub(connection, 'execute').resolves(validObject);
   });
-  after(() => {
-    sinon.stub.reset();
+  after(async () => {
+    connection.execute.restore();
   })
 
   it('Verifica se é possivel listar todos os produtos', async () => {
     const response = await productsModels.getAll()
 
     expect(response).to.be.a('object');
-    expect(response).to.equal(validObject);
   })
 })

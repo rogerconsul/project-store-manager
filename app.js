@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const products = require('./models/products');
 const errorMiddleware = require('./middlewares/errorMiddleware');
-const checkInput = require('./middlewares/checkInput');
+const checkNameInput = require('./middlewares/checkInput');
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.get('/products/:id', errorMiddleware, async (req, res, next) => {
   }
 });
 
-app.post('/products', checkInput, async (req, res) => {
+app.post('/products', checkNameInput, async (req, res) => {
   try {
     const { name } = req.body;
     const product = await products.create(name);

@@ -1,12 +1,13 @@
-const checkInput = (err, req, res, _next) => {
+const checkNameInput = (req, res, next) => {
   const { name } = req.body;
-  if (!name || typeof name !== 'string') {
-    return res.status(err.status).json({ message: err.message });
+  if (!name) {
+    return res.status(400).json({ message: '"name" is required' });
   }
-  if (err.status) {
-    return res.status(err.status).json({ message: err.message });
+  if (name.length < 5) {
+    return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
   }
+  next();
   return res.status(500).json({ message: 'Erro não definido' });
 };
 
-module.exports = checkInput;
+module.exports = checkNameInput;
