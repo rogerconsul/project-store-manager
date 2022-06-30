@@ -14,17 +14,29 @@ const validObject = [
   }
 ]
 
+const validObjectID1 = {
+  "id": 1,
+    "name": "Martelo de Thor",
+}
+
 describe('Verifica o product Model', () => {
+
   before(async () => {
-    sinon.stub(connection, 'execute').resolves(validObject);
+    sinon.stub(connection, 'query').resolves([validObject]);
   });
   after(async () => {
-    connection.execute.restore();
+    connection.query.restore();
   })
 
   it('Verifica se é possivel listar todos os produtos', async () => {
     const response = await productsModels.getAll()
 
-    expect(response).to.be.a('object');
+    expect(response).to.equal(validObject);
+  })
+
+  it('Verifica se é possivel listar pelo ID', async () => {
+    sinon.stub(productsModels, 'getById').resolves(validObjectID1)
+    const response = await productsModels.getById(1);
+    expect(response).to.equal(validObjectID1)
   })
 })

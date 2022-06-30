@@ -7,7 +7,7 @@ const checkNameInput = (req, res, next) => {
     return res.status(422).json({ message: '"name" length must be at least 5 characters long' });
   }
   next();
-  return res.status(500).json({ message: 'Erro não definido' });
+  // return res.status(500).json({ message: 'Erro não definido' });
 };
 
 module.exports = checkNameInput;

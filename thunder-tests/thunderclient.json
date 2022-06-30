@@ -4,11 +4,11 @@
     "colId": "cd66d8d0-a27a-48fc-8b08-33164d2d7783",
     "containerId": "",
     "name": "getAll",
-    "url": "localhost:3000/products/2",
+    "url": "localhost:3000/products",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-06-29T18:01:52.143Z",
-    "modified": "2022-06-30T17:20:12.679Z",
+    "modified": "2022-06-30T19:18:04.232Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -22,7 +22,7 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-06-29T18:37:49.949Z",
-    "modified": "2022-06-29T19:49:20.391Z",
+    "modified": "2022-06-30T19:18:18.205Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -36,12 +36,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-06-29T21:37:21.261Z",
-    "modified": "2022-06-30T18:16:47.662Z",
+    "modified": "2022-06-30T19:32:39.820Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"name\": \"aasd\"\n  }",
+      "raw": "  {\n    \"name\": \"IstoAqui\"\n  }",
       "form": []
     },
     "tests": []
