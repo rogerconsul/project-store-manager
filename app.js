@@ -4,6 +4,7 @@ const products = require('./models/products');
 const checkNameInput = require('./middlewares/checkNameInput');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const sales = require('./controllers/salesController');
+const productsController = require('./controllers/productsController');
 
 const app = express();
 
@@ -44,6 +45,8 @@ app.post('/products', checkNameInput, async (req, res) => {
 app.get('/sales', sales.getAll);
 
 app.get('/sales/:id', sales.getById);
+
+app.delete('/products/:id', productsController.remove);
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {

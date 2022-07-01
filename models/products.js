@@ -29,8 +29,21 @@ const create = async (payload) => {
   return mountedObject;
 };
 
+const remove = async (id) => {
+  const query = `
+  DELETE FROM StoreManager.products WHERE (id = ?);
+  `;
+  const produto = await getById({ id });
+  if (!produto) {
+    return null;
+  }
+  const remocao = await connection.execute(query, [id]);
+  return remocao;
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  remove,
 };
