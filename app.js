@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const products = require('./models/products');
 const checkNameInput = require('./middlewares/checkNameInput');
 const errorMiddleware = require('./middlewares/errorMiddleware');
+const sales = require('./controllers/salesController');
 
 const app = express();
 
@@ -39,6 +40,10 @@ app.post('/products', checkNameInput, async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+
+app.get('/sales', sales.getAll);
+
+app.get('/sales/:id', sales.getById);
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
