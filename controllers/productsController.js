@@ -1,8 +1,8 @@
-const model = require('../models/products');
+const service = require('../services/productsService');
 
 const remove = async (req, res) => {
   const { id } = req.params;
-  const exclui = await model.remove(id);
+  const exclui = await service.remove(id);
   if (!exclui) {
     return res.status(404).json({ message: 'Product not found' });
   }
