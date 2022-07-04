@@ -42,11 +42,15 @@ app.post('/products', checkNameInput, async (req, res) => {
   }
 });
 
+app.put('/products/:id', productsController.update);
+
+app.delete('/products/:id', productsController.remove);
+
 app.get('/sales', sales.getAll);
 
 app.get('/sales/:id', sales.getById);
 
-app.delete('/products/:id', productsController.remove);
+// app.post('/sales', sales.create); // CONTINUAR O REQ 6 AQUI!
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {

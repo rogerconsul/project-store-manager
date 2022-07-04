@@ -41,9 +41,24 @@ const remove = async (id) => {
   return remocao;
 };
 
+const update = async (id, payload) => {
+  const query = `
+  UPDATE StoreManager.products
+  SET name = ?
+  WHERE id = ?
+  `;
+  const produto = await (getById({ id }));
+  if (!produto) {
+    return null;
+  }
+  const atualiza = await connection.execute(query, [payload, id]);
+  return atualiza;
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   remove,
+  update,
 };
