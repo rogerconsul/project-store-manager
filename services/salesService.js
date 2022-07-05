@@ -12,7 +12,7 @@ const getById = async (id) => {
 
 const create = async (prodId, payload) => {
   const find = await model.idFinder();
-  const found = payload.some((element) =>
+  const found = payload.every((element) =>
     find.includes(element.productId));
   
   if (!found || !find) {

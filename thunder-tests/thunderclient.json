@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-06-29T18:01:52.143Z",
-    "modified": "2022-06-30T19:18:04.232Z",
+    "modified": "2022-07-05T19:57:44.243Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -102,12 +102,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-04T18:14:21.377Z",
-    "modified": "2022-07-05T19:28:59.501Z",
+    "modified": "2022-07-05T20:50:18.321Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  [\n    {\n      \"productId\": 1\n    },\n    {\n      \"productId\": 2,\n      \"quantity\":5\n    }\n  ]",
+      "raw": "  [\n    {\n      \"productId\": 1234,\n      \"quantity\":6\n    }\n  ]",
       "form": []
     },
     "tests": []

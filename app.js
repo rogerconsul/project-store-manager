@@ -5,6 +5,7 @@ const checkNameInput = require('./middlewares/checkNameInput');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const sales = require('./controllers/salesController');
 const productsController = require('./controllers/productsController');
+// const { checkSales2 } = require('./middlewares/salesControllerMid');
 
 const app = express();
 
