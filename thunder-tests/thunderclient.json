@@ -69,12 +69,12 @@
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-06-30T22:49:52.512Z",
-    "modified": "2022-07-04T21:29:29.906Z",
+    "modified": "2022-07-05T21:43:19.299Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"name\": \"Eu vou resolver o erro!\"\n  }",
+      "raw": "  {\n    \"namfgdgfde\": \"Eu vou resolver o erro!\"\n  }",
       "form": []
     },
     "tests": []
@@ -102,14 +102,28 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-04T18:14:21.377Z",
-    "modified": "2022-07-05T20:50:18.321Z",
+    "modified": "2022-07-05T21:40:22.026Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  [\n    {\n      \"productId\": 1234,\n      \"quantity\":6\n    }\n  ]",
+      "raw": "  [\n    {\n      \"produ2ctId\": 2,\n      \"quantity\":1\n    }\n  ]",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "00a8a170-a125-4fba-bebe-53033bf89b24",
+    "colId": "c0ab5c5e-9002-4bff-8bae-d05120242cd9",
+    "containerId": "",
+    "name": "getAllSales",
+    "url": "localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-07-05T21:09:20.978Z",
+    "modified": "2022-07-05T21:09:25.217Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

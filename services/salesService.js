@@ -11,16 +11,16 @@ const getById = async (id) => {
 };
 
 const create = async (prodId, payload) => {
-  const find = await model.idFinder();
-  const found = payload.every((element) =>
-    find.includes(element.productId));
+  // const find = await model.idFinder();
+  // const found = payload.every((element) =>
+  //   find.includes(element.productId));
   
-  if (!found || !find) {
-    throw Error;
-  } else {
+  // if (!found || !find) {
+  //   throw Error;
+  // } else {
     const exec = await model.create(prodId, payload);
     return exec;
-  }
+  // }
 };
 
 const manageDate = async () => {

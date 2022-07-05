@@ -1,4 +1,4 @@
-// const model = require('../models/sales');
+const model = require('../models/sales');
 const service = require('../services/salesService');
 const { checkSales } = require('../middlewares/salesControllerMid');
 
@@ -31,13 +31,13 @@ const create = (async (req, res) => {
   if (verifica2) {
     return res.status(verifica2.status).json({ message: verifica2.message });
   }
-  const id = await service.manageDate();
   try {
+  const find = await model.idFinder();
+  const found = body.every((element) => find.includes(element.productId));
+  if (!found || !find) throw Error;
+  const id = await service.manageDate();
     await service.create(id, body);
-    const result = {
-      id,
-      itemsSold: body,
-    };
+    const result = { id, itemsSold: body };
     return res.status(201).json(result);
   } catch (error) {
     res.status(404).json({ message: 'Product not found' });

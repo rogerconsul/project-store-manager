@@ -43,7 +43,7 @@ app.post('/products', checkNameInput, async (req, res) => {
   }
 });
 
-app.put('/products/:id', productsController.update);
+app.put('/products/:id', checkNameInput, productsController.update);
 
 app.delete('/products/:id', productsController.remove);
 
