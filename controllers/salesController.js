@@ -26,9 +26,10 @@ const getById = async (req, res) => {
 
 const create = (async (req, res) => {
   const { body } = req;
-  const [verifica] = await checkSales(body);
-  if (verifica) {
-    return res.status(verifica.status).json(verifica.message);
+  const verifica = await checkSales(body);
+  const verifica2 = verifica.find((e) => e);
+  if (verifica2) {
+    return res.status(verifica2.status).json(verifica2.message);
   }
   const id = await service.manageDate();
   await service.create(id, body);
