@@ -1,5 +1,5 @@
 const service = require('../services/productsService');
-const model = require('../models/products');
+// const model = require('../models/products');
 
 const remove = async (req, res) => {
   const { id } = req.params;
@@ -18,8 +18,12 @@ const update = async (req, res) => {
   if (!atualiza) {
     return res.status(404).json({ message: 'Product not found' });
   }
-  const atualizado = await model.getById({ id });
-  return res.status(200).json(atualizado);
+  const objetoRetorn = {
+    id,
+    name,
+  };
+  // const atualizado = await model.getById(id);
+  return res.status(200).json(objetoRetorn);
 };
 
 module.exports = {

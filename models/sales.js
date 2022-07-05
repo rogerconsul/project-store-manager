@@ -24,7 +24,37 @@ const getById = async ({ id }) => {
   return sale;
 };
 
+const create = async (id, payload) => {
+  const query = `
+  INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity)
+  VALUES (?, ?, ?)
+  `;
+  payload.map(async (product) => {
+    connection.execute(query, [id, product.productId, product.quantity]);
+  });
+};
+
+const idFinder = async () => {
+  const query = `
+  SELECT id FROM StoreManager.products
+  `;
+  const [exec] = await connection.execute(query);
+  const result = exec.map((e) => e.id);
+  return result;
+};
+
+const manageDate = async () => {
+  const query = `
+  INSERT INTO StoreManager.sales (date) VALUES (now())
+  `;
+  const [exec] = await connection.execute(query);
+  return exec.insertId;
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
+  idFinder,
+  manageDate,
 };

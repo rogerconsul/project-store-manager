@@ -21,7 +21,7 @@ app.get('/products', async (req, res) => {
 
 app.get('/products/:id', async (req, res) => {
   try {
-    const id = req.params;
+    const { id } = req.params;
     const produto = await products.getById(id);
     if (!produto) {
       return res.status(404).send({ message: 'Product not found' });
@@ -50,7 +50,7 @@ app.get('/sales', sales.getAll);
 
 app.get('/sales/:id', sales.getById);
 
-// app.post('/sales', sales.create); // CONTINUAR O REQ 6 AQUI!
+app.post('/sales', sales.create);
 
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {

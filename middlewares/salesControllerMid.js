@@ -1,18 +1,17 @@
-  const checkSales = (req, res, next) => {
-    const parametros = req.params;
-    parametros.map((element) => {
+const checkSales = async (body) => {
+    const verifica = await body.map((element) => { // usar o newparams
       if (element.quantity < 1) {
-        return res.status(422).json({ message: '\'quantity\' must be greater than or equal to 1' });
+        return { status: 422, message: '"quantity" must be greater than or equal to 1' };
       }
       if (!element.productId) {
-        return res.status(400).json({ message: '"productId" is required' });
+        return { status: 400, message: '"productId" is required' };
       }
       if (!element.quantity) {
-        return res.status(400).json({ message: '"quantity" is required' });
+        return { status: 400, message: '"quantity" is required' };
       }
-      return true;
+      return null;
     });
-    next();
+  return verifica;
   };
 
 module.exports = checkSales;

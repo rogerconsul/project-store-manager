@@ -11,7 +11,7 @@ return products;
 
 // busca produtos para um id.
 
-const getById = async ({ id }) => {
+const getById = async (id) => {
   const query = 'SELECT * FROM StoreManager.products WHERE id = ?';
   const [[product]] = await connection.execute(query, [id]);
   return product;
@@ -47,10 +47,6 @@ const update = async (id, payload) => {
   SET name = ?
   WHERE id = ?
   `;
-  const produto = await (getById({ id }));
-  if (!produto) {
-    return null;
-  }
   const atualiza = await connection.execute(query, [payload, id]);
   return atualiza;
 };

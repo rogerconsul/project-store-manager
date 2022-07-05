@@ -1,6 +1,6 @@
 // const model = require('../models/sales');
 const service = require('../services/salesService');
-// const checkSales = require('../middlewares/salesControllerMid');
+const checkSales = require('../middlewares/salesControllerMid');
 
 const getAll = async (_req, res) => {
   try {
@@ -24,31 +24,23 @@ const getById = async (req, res) => {
  }
 };
 
-// const create = (checkSales, async (req, res) => {
-//   const parametros = req.body;
-//   parametros.foreach(async (element) => {
-//     await service.create(element.productId, element.quantity);
-//   });
-//     return res.status(201).json({ message: 'chatubO' });
-
-  // parametros.map(async (element) => {
-  //   const { productId } = element;
-  //   const { quantity } = element;
-  //   if (!productId) {
-  //     return res.status(400).json({ message: '"productId" is required' });
-  //   }
-  //   if (!quantity) {
-  //     return res.status(400).json({ message: '"quantity" is required' });
-  //   }
-  //   const cria = await service.create(productId, quantity);
-  //   if (!cria) {
-  //     return res.status(404).json({ message: 'Product not found' });
-  //   }
-  // });
-// });
+const create = (async (req, res) => {
+  const { body } = req;
+  const [verifica] = await checkSales(body);
+  if (verifica) {
+    return res.status(verifica.status).json(verifica.message);
+  }
+  const id = await service.manageDate();
+  await service.create(id, body);
+  const result = {
+    id,
+    itemsSold: body,
+  };
+  return res.status(201).json(result);
+});
 
 module.exports = {
   getAll,
   getById,
-  // create,
+  create,
 };

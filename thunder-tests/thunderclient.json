@@ -18,11 +18,11 @@
     "colId": "cd66d8d0-a27a-48fc-8b08-33164d2d7783",
     "containerId": "",
     "name": "getById",
-    "url": "localhost:3000/products/4",
+    "url": "localhost:3000/products/1",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-06-29T18:37:49.949Z",
-    "modified": "2022-06-30T19:18:18.205Z",
+    "modified": "2022-07-04T21:24:17.141Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -65,16 +65,16 @@
     "colId": "cd66d8d0-a27a-48fc-8b08-33164d2d7783",
     "containerId": "",
     "name": "putProduct",
-    "url": "localhost:3000/products/3",
+    "url": "localhost:3000/products/2",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-06-30T22:49:52.512Z",
-    "modified": "2022-07-04T20:33:02.605Z",
+    "modified": "2022-07-04T21:29:29.906Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"name\": \"Martelo do 123223\"\n  }",
+      "raw": "  {\n    \"name\": \"Eu vou resolver o erro!\"\n  }",
       "form": []
     },
     "tests": []
@@ -102,12 +102,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-07-04T18:14:21.377Z",
-    "modified": "2022-07-04T20:00:24.951Z",
+    "modified": "2022-07-05T19:08:16.535Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"name\": \"Martelo do Batman\"\n  }",
+      "raw": "  [\n    {\n      \"productId\": 1,\n      \"quantity\":6\n    },\n    {\n      \"productId\": 2,\n      \"quantity\":5\n    }\n  ]",
       "form": []
     },
     "tests": []

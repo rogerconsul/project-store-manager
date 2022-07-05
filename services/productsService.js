@@ -6,6 +6,10 @@ const remove = async (id) => {
 };
 
 const update = async (id, payload) => {
+   const produto = await (model.getById(id));
+  if (!produto) {
+    return null;
+  }
   const bridge = await model.update(id, payload);
   return bridge;
 };
