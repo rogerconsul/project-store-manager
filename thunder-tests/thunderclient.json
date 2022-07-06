@@ -69,12 +69,12 @@
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-06-30T22:49:52.512Z",
-    "modified": "2022-07-05T21:43:19.299Z",
+    "modified": "2022-07-06T20:13:39.616Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"namfgdgfde\": \"Eu vou resolver o erro!\"\n  }",
+      "raw": "  {\n    \"name\": \"Eu vou resolver o erro!\"\n  }",
       "form": []
     },
     "tests": []
