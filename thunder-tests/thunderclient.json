@@ -84,11 +84,11 @@
     "colId": "cd66d8d0-a27a-48fc-8b08-33164d2d7783",
     "containerId": "",
     "name": "deleteProduct",
-    "url": "localhost:3000/products/4",
+    "url": "localhost:3000/products/2",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2022-07-01T21:49:07.214Z",
-    "modified": "2022-07-04T20:41:40.489Z",
+    "modified": "2022-07-06T20:59:53.131Z",
     "headers": [],
     "params": [],
     "tests": []

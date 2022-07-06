@@ -33,7 +33,7 @@ const remove = async (id) => {
   const query = `
   DELETE FROM StoreManager.products WHERE (id = ?);
   `;
-  const produto = await getById({ id });
+  const produto = await getById(id);
   if (!produto) {
     return null;
   }
