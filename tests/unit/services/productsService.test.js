@@ -20,7 +20,7 @@ describe('testa productsService', () => {
   describe('testa a camada UPDATE', () => {
     it('Deve disparar erro caso update rejeite', () => {
       sinon.stub(model, 'getById').resolves(false);
-      return chai.expect(service.remove(1)).to.eventually.be.null
+      return chai.expect(service.update(1, {})).to.eventually.be.null
     })
 
     it('Deve retornar o esperado', () => {
