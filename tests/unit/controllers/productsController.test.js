@@ -43,5 +43,31 @@ describe('productsController', () => {
     it('Deve disparar erro caso o service.update dê erro', async () => {
       sinon.stub(service, 'update').rejects();
     })
+
+    it('Deve vir invalido na funcao atualiza', async () => {
+      sinon.stub(service, 'update').resolves(false);
+      const res = {
+        status: sinon.stub().callsFake(() => res),
+        json: sinon.stub().returns({ message: 'Product not found' }),
+      }
+      await controller.update({ params: { id: 1 }, body: {name: 'Joelma'} }, res)
+      chai.expect(res.status.getCall(0).args[0]).to.equal(404)
+      chai.expect(res.json.getCall(0).args[0]).to.deep.equal({ message: 'Product not found' })
+    })
   })
+
+    it('Deve resolver', async () => {
+      sinon.stub(service, 'update').resolves(1);
+      const res = {
+        status: sinon.stub().callsFake(() => res),
+        json: sinon.stub().returns(),
+      }
+      const obj = {
+        id: 1,
+        name: 'Joelma',
+      }
+      await controller.update({ params: { id: 1 }, body: { name: 'Joelma' } }, res)
+      chai.expect(res.status.getCall(0).args[0]).to.equal(200)
+      chai.expect(res.json.getCall(0).args[0]).to.deep.equal(obj)
+    })
 })
